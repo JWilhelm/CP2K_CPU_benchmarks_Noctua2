@@ -24,8 +24,8 @@ LEGEND = dict(frameon=True, fancybox=False, edgecolor="black", facecolor="white"
 
 CASES = [  # folder, label, colour, marker
     ("water_64_PBE_TZV2P", "64 H$_2$O, PBE, TZV2P-MOLOPT", "#1f77b4", "o"),
-    ("Si_GW_aug-TZ2", "Si, $G_0W_0$, aug-TZVP-MOLOPT tier 2, 12$\\times$12$\\times$12 $k$", "#ff7f0e", "s"),
-    ("WSe2_monolayer_GW_aug-TZ2", "WSe$_2$ monolayer, $G_0W_0$, aug-TZVP-MOLOPT tier 2, 16$\\times$16$\\times$1 $k$", "#9467bd", "D"),
+    ("Si_GW_aug-TZ2", "Si, $G_0W_0$ + SOC, aug-TZVP-MOLOPT tier 2, 12$\\times$12$\\times$12 $k$", "#ff7f0e", "s"),
+    ("WSe2_monolayer_GW_aug-TZ2", "WSe$_2$ monolayer, $G_0W_0$ + SOC, aug-TZVP-MOLOPT tier 2, 16$\\times$16$\\times$1 $k$", "#9467bd", "D"),
     ("nanographene_L5_GW_aug-SZ2", "nanographene 98 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#d62728", "v"),
     ("nanographene_L16_GW_aug-SZ2_autoRI", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#2ca02c", "^"),
     ("nanographene_L16_GW_aug-SZ2", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, RI basis from file", "#8c564b", "<"),
@@ -39,7 +39,7 @@ STEPS = {
                      ("$\\chi$", ["get_mat_chi_Gamma_tau"]), ("$W$", ["compute_W"]),
                      ("$\\mathit{\\Sigma}$ and QP energies", ["compute_Sigma_c_and_QP_energie"])],
     "periodic GW": [("SCF", ["scf_env_do_scf"]), ("RI-RS grid optimization", ["optimize_ri_rs_grid"]),
-                    ("RI-RS matrix $Z_{\\ell P}$", ["prepare_ri_rs", "-optimize_ri_rs_grid"]),
+                    ("RI-RS matrix $Z_{lP}$", ["prepare_ri_rs", "-optimize_ri_rs_grid"]),
                     ("$\\chi$", ["compute_chi"]), ("$W$", ["compute_W0"]),
                     ("$\\mathit{\\Sigma}$ and QP energies", ["compute_Sigma_x", "compute_Sigma_c_and_QP"]),
                     ("SOC and band output", ["soc", "eval_bandstructure_properties"])],
@@ -72,6 +72,8 @@ def timing_report(path):
 def memory_failure(run_dir):
     """True if the run was killed for memory or stopped by a CP2K memory check."""
     text = ""
+    if not os.path.isdir(run_dir):
+        return False
     for name in ("output.out", "cp2k.stderr") + tuple(f for f in os.listdir(run_dir) if f.startswith("slurm-")):
         path = os.path.join(run_dir, name)
         if os.path.exists(path):
@@ -112,7 +114,7 @@ ax.yaxis.set_major_locator(FixedLocator(yt))
 ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: "%d" % v))
 ax.yaxis.set_minor_formatter(NullFormatter())
 ax.set_xlim(55, 300)
-ax.set_ylim(20, 10000)
+ax.set_ylim(40, 6000)
 ax.set_xlabel("Number of cores (128 cores per Noctua 2 node)")
 ax.set_ylabel("Wall time (s)")
 ax.grid(True, which="major", color="0.85", lw=0.6)

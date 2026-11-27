@@ -17,6 +17,8 @@ for porting to GPUs. Each table entry is the CP2K wall time in seconds and links
 
 ![Strong scaling](figures/fig_scaling.png)
 
+Wall time against the number of cores; dotted lines: ideal scaling from the smallest run.
+
 ## Machine, code, run setup
 
 - Noctua 2, partition `normal`: 2× AMD EPYC 7763 per node, 128 cores, 256 GB RAM per node.
