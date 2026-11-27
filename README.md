@@ -1,5 +1,7 @@
 # CP2K CPU benchmarks on Noctua 2: DFT and low-scaling G₀W₀
 
+Summary report: [cp2k_benchmarks_noctua2.pdf](cp2k_benchmarks_noctua2.pdf).
+
 Wall times of six CP2K test cases on 0.5, 1 and 2 nodes of Noctua 2 (PC2 Paderborn), as CPU reference
 for porting to GPUs. Each table entry is the CP2K wall time in seconds and links to the output.
 **–** = the run does not fit into the memory of the nodes (the link leads to the output and the Slurm log).

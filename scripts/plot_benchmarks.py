@@ -23,14 +23,20 @@ plt.rcParams.update({"font.family": "Liberation Sans", "font.size": 10, "mathtex
 LEGEND = dict(frameon=True, fancybox=False, edgecolor="black", facecolor="white", framealpha=1)
 
 CASES = [  # folder, label, colour, marker
-    ("water_64_PBE_TZV2P", "64 H$_2$O, PBE, TZV2P-MOLOPT", "#1f77b4", "o"),
-    ("Si_GW_aug-TZ2", "Si, $G_0W_0$ + SOC, aug-TZVP-MOLOPT tier 2, 12$\\times$12$\\times$12 $k$", "#ff7f0e", "s"),
-    ("WSe2_monolayer_GW_aug-TZ2", "WSe$_2$ monolayer, $G_0W_0$ + SOC, aug-TZVP-MOLOPT tier 2, 16$\\times$16$\\times$1 $k$", "#9467bd", "D"),
-    ("nanographene_L5_GW_aug-SZ2", "nanographene 98 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#d62728", "v"),
-    ("nanographene_L16_GW_aug-SZ2_autoRI", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#2ca02c", "^"),
-    ("nanographene_L16_GW_aug-SZ2", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, RI basis from file", "#8c564b", "<"),
+    ("water_64_PBE_TZV2P", "64 H$_2$O, PBE, TZV2P-MOLOPT-GTH", "#1f77b4", "o"),
+    ("Si_GW_aug-TZ2", "Si, $G_0W_0$ + SOC, aug-TZVP-MOLOPT-GTH tier 2, 12$\\times$12$\\times$12 $k$", "#ff7f0e", "s"),
+    ("WSe2_monolayer_GW_aug-TZ2", "WSe$_2$ monolayer, $G_0W_0$ + SOC, aug-TZVP-MOLOPT-GTH tier 2, 16$\\times$16$\\times$1 $k$", "#9467bd", "D"),
+    ("nanographene_L5_GW_aug-SZ2", "nanographene 98 atoms, $G_0W_0$, aug-SZV-MOLOPT-GTH tier 2, AUTO_RI", "#d62728", "v"),
+    ("nanographene_L16_GW_aug-SZ2_autoRI", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT-GTH tier 2, AUTO_RI", "#2ca02c", "^"),
+    ("nanographene_L16_GW_aug-SZ2", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT-GTH tier 2, RI basis from file", "#8c564b", "<"),
 ]
 NODES = ["0.5", "1", "2"]
+STEP_TITLES = {  # short panel titles of fig_steps (basis sets and k-meshes are in the caption and the table)
+    "water_64_PBE_TZV2P": "64 H$_2$O, PBE", "Si_GW_aug-TZ2": "Si, $G_0W_0$ + SOC",
+    "WSe2_monolayer_GW_aug-TZ2": "WSe$_2$ monolayer, $G_0W_0$ + SOC",
+    "nanographene_L5_GW_aug-SZ2": "nanographene 98 atoms, $G_0W_0$, AUTO_RI",
+    "nanographene_L16_GW_aug-SZ2_autoRI": "nanographene 296 atoms, $G_0W_0$, AUTO_RI",
+    "nanographene_L16_GW_aug-SZ2": "nanographene 296 atoms, $G_0W_0$, RI basis from file"}
 CORES_PER_NODE = 128
 
 # main steps: label -> timer names whose inclusive times are added (step "other" = total - sum)
@@ -125,7 +131,7 @@ for ext in ("pdf", "png"):
 plt.close(fig)
 
 # ---------------------------------------------------------------- step breakdown
-fig, axes = plt.subplots(len(CASES), 1, figsize=(16 * CM, 26 * CM))
+fig, axes = plt.subplots(len(CASES), 1, figsize=(16 * CM, 23 * CM))
 for ax, (case, label, _, _), letter in zip(axes, CASES, "abcdefg"):
     steps = STEPS[KIND[case]]
     nodes = NODES
@@ -145,7 +151,8 @@ for ax, (case, label, _, _), letter in zip(axes, CASES, "abcdefg"):
         ax.bar(i, r["CP2K"] - bottom, bottom=bottom, color=STEP_COLOURS[-1], width=0.6, label="other")
     handles, labels = ax.get_legend_handles_labels()
     uniq = dict(zip(labels, handles))
-    ax.legend(uniq.values(), uniq.keys(), loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=8, **LEGEND)
+    ax.legend(uniq.values(), uniq.keys(), loc="upper left", bbox_to_anchor=(1.02, 1.12), fontsize=8, labelspacing=0.15,
+              handlelength=1.2, borderpad=0.3, **LEGEND)
     ax.set_xticks(list(xpos))
     ax.set_xticklabels(["%d" % (float(n) * CORES_PER_NODE) for n in nodes])
     ax.set_xlim(-0.6, len(nodes) - 0.4)
@@ -154,7 +161,7 @@ for ax, (case, label, _, _), letter in zip(axes, CASES, "abcdefg"):
     ax.yaxis.set_minor_locator(MultipleLocator(tick_step(1.3 * tmax) / 5))
     ax.set_ylabel("Wall time (s)")
     ax.text(0.01, 0.95, "(%s)" % letter, transform=ax.transAxes, va="top", ha="left")
-    ax.set_title(label, fontsize=10, loc="left")
+    ax.set_title(STEP_TITLES[case], fontsize=10, loc="left")
 axes[-1].set_xlabel("Number of cores (128 cores per Noctua 2 node)")
 fig.tight_layout()
 for ext in ("pdf", "png"):
