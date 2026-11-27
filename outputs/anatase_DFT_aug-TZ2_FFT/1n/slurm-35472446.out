@@ -1,0 +1,4 @@
+cpu-bind=MASK - n2cn0519, task  0  0 [3046303]: mask 0x|BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB| set
+binary /scratch/hpc-prf-dyncrys/eprop2d1_Jan/34_CP2K_benchmarks_LRZ/build/runtime_master data /scratch/hpc-prf-dyncrys/eprop2d1_Jan/34_CP2K_benchmarks_LRZ/build/source/data
+start 1795783376 nodes 1 ranks 16 host n2cn0519
+end 1795783759 exit 0

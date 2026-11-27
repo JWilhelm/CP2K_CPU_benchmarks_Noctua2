@@ -1,0 +1,4 @@
+[2026-11-27T12:28:13.759] error: Detected 1 oom_kill event in StepId=35472266.0. Some of the step tasks have been OOM Killed.
+srun: error: n2cn0801: task 4: Out Of Memory
+srun: Terminating StepId=35472266.0
+[2026-11-27T12:28:13.863] error: *** STEP 35472266.0 ON n2cn0801 CANCELLED AT 2026-11-27T12:28:13 DUE TO TASK FAILURE ***

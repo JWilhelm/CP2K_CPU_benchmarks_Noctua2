@@ -1,0 +1,3 @@
+cpu-bind=MASK - n2cn0192, task  0  0 [2798744]: mask 0x|BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||BBBBBBBB|BBBBBBBB||||--------|--------||--------|--------||--------|--------||--------|--------| set
+start 1795778730 nodes 1 ranks 8 host n2cn0192
+end 1795778924 exit 0
