@@ -56,7 +56,7 @@ uses the default `RS_AO_RATIO` (7 grid points per AO function: 42 per H, 91 per 
 
 Since [cp2k/cp2k#6454](https://github.com/cp2k/cp2k/pull/6454) (16 Nov 2026) `&KPOINTS / RSKP_TRANSFORM` selects GEMM (default) or FFT
 for the real-space/k-point transforms; the former `LATTICE_FFT AUTO` (FFT from 27 k-points on) was removed.
-- **Anatase PBE, aug-TZVP tier 2:** FFT is 1.8–5.1× faster. With GEMM the density-matrix transform k → R does not scale
+- **Anatase PBE, aug-TZVP tier 2:** FFT is 1.6–5.1× faster. With GEMM the density-matrix transform k → R does not scale
   (205 s on 0.5 node, 614 s on 4 nodes: one reduction over all ranks per atom-block tile), with FFT it takes 13–80 s.
   Same total energy (to 1E-12 Hartree), same memory.
 - **Anatase G₀W₀, aug-SZV tier 2, 8 nodes:** GEMM is faster (953 s against 1148 s); with FFT the R → k transform of the
