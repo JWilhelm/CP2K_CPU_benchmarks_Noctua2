@@ -769,6 +769,78 @@
   }
  },
  "nanographene_L16_GW_aug-SZ2_autoRI": {
+  "0.5": {
+   "nodes": 0.5,
+   "status": "completed",
+   "wall_s": 4321.663,
+   "steps_s": {
+    "SCF": 4319.828
+   },
+   "peak_mem_per_rank_MiB": 7999,
+   "top_routines": [
+    [
+     "qs_energies",
+     4319.828
+    ],
+    [
+     "qs_energies_properties",
+     4071.524
+    ],
+    [
+     "post_scf_bandstructure",
+     4071.521
+    ],
+    [
+     "run_gw",
+     4066.107
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     4035.814
+    ],
+    [
+     "ensure_ri_rs_representation",
+     3078.661
+    ],
+    [
+     "optimize_ri_rs_grid",
+     2910.499
+    ],
+    [
+     "optimize_grid_coordinates",
+     2765.942
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     2680.106
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     2541.347
+    ],
+    [
+     "contract_grid_panels",
+     563.535
+    ],
+    [
+     "dbcsr_multiply_generic",
+     537.168
+    ],
+    [
+     "multiply_cannon",
+     453.075
+    ],
+    [
+     "multiply_cannon_loop",
+     438.816
+    ],
+    [
+     "multiply_cannon_multrec",
+     411.12
+    ]
+   ],
+   "gw_gap_eV": 3.312
+  },
   "1": {
    "nodes": 1.0,
    "status": "completed",
