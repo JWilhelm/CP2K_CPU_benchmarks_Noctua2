@@ -1,756 +1,917 @@
 {
- "anatase_DFT_aug-TZ2": {
+ "water_64_PBE_TZV2P": {
   "0.5": {
    "nodes": 0.5,
    "status": "completed",
-   "wall_s": 1119.574,
+   "wall_s": 191.016,
    "steps_s": {
-    "SCF": 1119.213
+    "SCF": 190.729
    },
-   "peak_mem_per_rank_MiB": 6443,
+   "peak_mem_per_rank_MiB": 818,
    "top_routines": [
     [
      "qs_energies",
-     1119.213
+     190.729
     ],
     [
      "scf_env_do_scf",
-     1107.369
+     186.88
     ],
     [
      "scf_env_do_scf_inner_loop",
-     1107.366
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     909.039
-    ],
-    [
-     "do_general_diag_kp",
-     909.003
-    ],
-    [
-     "cp_cfm_geeig_local",
-     372.653
-    ],
-    [
-     "kpoint_operator_evaluate_batch",
-     239.642
-    ],
-    [
-     "kpoint_density_transform",
-     205.374
-    ],
-    [
-     "kpoint_density_transform_batch",
-     205.275
-    ],
-    [
-     "kp_density_contract",
-     154.586
+     182.641
     ],
     [
      "qs_ks_update_qs_env",
-     99.204
+     94.281
     ],
     [
      "rebuild_ks_matrix",
-     96.373
+     94.2
     ],
     [
      "qs_ks_build_kohn_sham_matrix",
-     96.37
+     94.199
+    ],
+    [
+     "qs_rho_update_rho_low",
+     90.023
+    ],
+    [
+     "calculate_rho_elec",
+     90.022
     ],
     [
      "sum_up_and_integrate",
-     92.829
+     88.546
     ],
     [
      "integrate_v_rspace",
-     92.809
+     88.506
+    ],
+    [
+     "grid_collocate_task_list",
+     88.321
+    ],
+    [
+     "grid_integrate_task_list",
+     87.261
     ]
    ]
   },
   "1": {
    "nodes": 1.0,
    "status": "completed",
-   "wall_s": 694.013,
+   "wall_s": 98.148,
    "steps_s": {
-    "SCF": 693.703
+    "SCF": 97.894
    },
-   "peak_mem_per_rank_MiB": 3753,
+   "peak_mem_per_rank_MiB": 617,
    "top_routines": [
     [
      "qs_energies",
-     693.703
+     97.894
     ],
     [
      "scf_env_do_scf",
-     686.627
+     95.81
     ],
     [
      "scf_env_do_scf_inner_loop",
-     686.625
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     578.558
-    ],
-    [
-     "do_general_diag_kp",
-     578.55
-    ],
-    [
-     "kpoint_density_transform",
-     214.687
-    ],
-    [
-     "kpoint_density_transform_batch",
-     214.661
-    ],
-    [
-     "cp_cfm_geeig_local",
-     183.334
-    ],
-    [
-     "kp_density_contract",
-     150.334
-    ],
-    [
-     "kpoint_operator_evaluate_batch",
-     116.693
+     93.471
     ],
     [
      "qs_ks_update_qs_env",
-     51.522
+     47.432
     ],
     [
      "rebuild_ks_matrix",
-     49.728
+     47.382
     ],
     [
      "qs_ks_build_kohn_sham_matrix",
-     49.726
+     47.381
+    ],
+    [
+     "qs_rho_update_rho_low",
+     45.849
+    ],
+    [
+     "calculate_rho_elec",
+     45.849
     ],
     [
      "sum_up_and_integrate",
-     47.978
+     44.69
     ],
     [
      "integrate_v_rspace",
-     47.945
+     44.675
+    ],
+    [
+     "grid_collocate_task_list",
+     44.604
+    ],
+    [
+     "grid_integrate_task_list",
+     43.823
     ]
    ]
   },
   "2": {
    "nodes": 2.0,
    "status": "completed",
-   "wall_s": 498.471,
+   "wall_s": 59.483,
    "steps_s": {
-    "SCF": 498.056
+    "SCF": 59.147
    },
-   "peak_mem_per_rank_MiB": 2857,
+   "peak_mem_per_rank_MiB": 592,
    "top_routines": [
     [
      "qs_energies",
-     498.056
+     59.147
     ],
     [
      "scf_env_do_scf",
-     491.147
+     56.727
     ],
     [
      "scf_env_do_scf_inner_loop",
-     491.143
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     428.228
-    ],
-    [
-     "do_general_diag_kp",
-     428.226
-    ],
-    [
-     "kpoint_density_transform",
-     217.979
-    ],
-    [
-     "kpoint_density_transform_batch",
-     217.962
-    ],
-    [
-     "kp_density_contract",
-     129.738
-    ],
-    [
-     "cp_cfm_geeig_local",
-     89.321
-    ],
-    [
-     "kpoint_operator_evaluate_batch",
-     52.924
-    ],
-    [
-     "mp_bcast_i",
-     44.165
-    ],
-    [
-     "kpoint_operator_prepare",
-     36.401
-    ],
-    [
-     "rskp_capture",
-     35.362
+     54.327
     ],
     [
      "qs_ks_update_qs_env",
-     28.599
+     26.189
     ],
     [
      "rebuild_ks_matrix",
-     27.254
-    ]
-   ]
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "completed",
-   "wall_s": 791.965,
-   "steps_s": {
-    "SCF": 791.507
-   },
-   "peak_mem_per_rank_MiB": 2460,
-   "top_routines": [
-    [
-     "qs_energies",
-     791.507
+     26.151
     ],
     [
-     "scf_env_do_scf",
-     787.519
+     "qs_ks_build_kohn_sham_matrix",
+     26.149
     ],
     [
-     "scf_env_do_scf_inner_loop",
-     787.513
+     "qs_rho_update_rho_low",
+     24.42
     ],
     [
-     "qs_scf_new_mos_kp",
-     733.689
+     "calculate_rho_elec",
+     24.419
     ],
     [
-     "do_general_diag_kp",
-     733.686
+     "sum_up_and_integrate",
+     23.774
     ],
     [
-     "kpoint_density_transform",
-     613.88
+     "integrate_v_rspace",
+     23.763
     ],
     [
-     "kpoint_density_transform_batch",
-     613.841
+     "grid_collocate_task_list",
+     22.961
     ],
     [
-     "mp_sum_im",
-     226.773
+     "grid_integrate_task_list",
+     22.13
     ],
     [
-     "mp_bcast_i",
-     194.524
+     "dbcsr_multiply_generic",
+     5.994
     ],
     [
-     "kp_density_contract",
-     129.344
+     "qs_scf_new_mos",
+     5.356
     ],
     [
-     "kp_density_reduce",
-     64.004
-    ],
-    [
-     "mp_sum_root_dv",
-     63.99
-    ],
-    [
-     "cp_cfm_geeig_local",
-     44.537
-    ],
-    [
-     "mp_bcast_im",
-     43.045
-    ],
-    [
-     "kpoint_operator_prepare",
-     39.865
+     "qs_scf_loop_do_ot",
+     5.355
     ]
    ]
   }
  },
- "anatase_DFT_aug-TZ2_FFT": {
-  "0.5": {
-   "nodes": 0.5,
-   "status": "completed",
-   "wall_s": 710.336,
-   "steps_s": {
-    "SCF": 709.964
-   },
-   "peak_mem_per_rank_MiB": 6467,
-   "top_routines": [
-    [
-     "qs_energies",
-     709.964
-    ],
-    [
-     "scf_env_do_scf",
-     698.037
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     698.03
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     498.564
-    ],
-    [
-     "do_general_diag_kp",
-     498.553
-    ],
-    [
-     "cp_cfm_geeig_local",
-     307.764
-    ],
-    [
-     "qs_ks_update_qs_env",
-     100.11
-    ],
-    [
-     "rebuild_ks_matrix",
-     96.444
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     96.44
-    ],
-    [
-     "kpoint_set_mo_occupation",
-     92.476
-    ],
-    [
-     "sum_up_and_integrate",
-     92.033
-    ],
-    [
-     "integrate_v_rspace",
-     92.012
-    ],
-    [
-     "mp_sum_dm3",
-     91.877
-    ],
-    [
-     "grid_integrate_task_list",
-     87.983
-    ],
-    [
-     "qs_rho_update_rho_low",
-     83.513
-    ]
-   ]
-  },
-  "1": {
-   "nodes": 1.0,
-   "status": "completed",
-   "wall_s": 379.402,
-   "steps_s": {
-    "SCF": 379.06
-   },
-   "peak_mem_per_rank_MiB": 3752,
-   "top_routines": [
-    [
-     "qs_energies",
-     379.06
-    ],
-    [
-     "scf_env_do_scf",
-     371.917
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     371.91
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     265.134
-    ],
-    [
-     "do_general_diag_kp",
-     265.129
-    ],
-    [
-     "cp_cfm_geeig_local",
-     159.781
-    ],
-    [
-     "qs_ks_update_qs_env",
-     51.423
-    ],
-    [
-     "rebuild_ks_matrix",
-     49.651
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     49.649
-    ],
-    [
-     "sum_up_and_integrate",
-     47.979
-    ],
-    [
-     "integrate_v_rspace",
-     47.942
-    ],
-    [
-     "grid_integrate_task_list",
-     45.604
-    ],
-    [
-     "qs_rho_update_rho_low",
-     44.065
-    ],
-    [
-     "calculate_rho_elec",
-     44.057
-    ],
-    [
-     "kpoint_operator_prepare",
-     42.504
-    ]
-   ]
-  },
-  "2": {
-   "nodes": 2.0,
-   "status": "completed",
-   "wall_s": 229.979,
-   "steps_s": {
-    "SCF": 229.574
-   },
-   "peak_mem_per_rank_MiB": 2567,
-   "top_routines": [
-    [
-     "qs_energies",
-     229.574
-    ],
-    [
-     "scf_env_do_scf",
-     222.731
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     222.725
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     160.875
-    ],
-    [
-     "do_general_diag_kp",
-     160.874
-    ],
-    [
-     "cp_cfm_geeig_local",
-     80.406
-    ],
-    [
-     "kpoint_operator_prepare",
-     38.418
-    ],
-    [
-     "rskp_capture",
-     32.267
-    ],
-    [
-     "qs_ks_update_qs_env",
-     28.283
-    ],
-    [
-     "rebuild_ks_matrix",
-     26.973
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     26.972
-    ],
-    [
-     "sum_up_and_integrate",
-     25.625
-    ],
-    [
-     "integrate_v_rspace",
-     25.614
-    ],
-    [
-     "qs_rho_update_rho_low",
-     24.11
-    ],
-    [
-     "calculate_rho_elec",
-     24.107
-    ]
-   ]
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "completed",
-   "wall_s": 155.3,
-   "steps_s": {
-    "SCF": 154.897
-   },
-   "peak_mem_per_rank_MiB": 1658,
-   "top_routines": [
-    [
-     "qs_energies",
-     154.897
-    ],
-    [
-     "scf_env_do_scf",
-     150.839
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     150.837
-    ],
-    [
-     "qs_scf_new_mos_kp",
-     108.67
-    ],
-    [
-     "do_general_diag_kp",
-     108.669
-    ],
-    [
-     "cp_cfm_geeig_local",
-     41.206
-    ],
-    [
-     "kpoint_operator_prepare",
-     39.246
-    ],
-    [
-     "rskp_capture",
-     33.56
-    ],
-    [
-     "mp_allgatherv_dv",
-     21.483
-    ],
-    [
-     "qs_ks_update_qs_env",
-     17.972
-    ],
-    [
-     "rebuild_ks_matrix",
-     17.023
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     17.022
-    ],
-    [
-     "sum_up_and_integrate",
-     16.043
-    ],
-    [
-     "integrate_v_rspace",
-     16.035
-    ],
-    [
-     "qs_rho_update_rho_low",
-     15.086
-    ]
-   ]
-  }
- },
- "anatase_GW_aug-SZ2": {
+ "Si_GW_aug-TZ2": {
   "0.5": {
    "nodes": 0.5,
    "status": "out of memory (killed)"
   },
   "1": {
    "nodes": 1.0,
-   "status": "memory check abort"
-  },
-  "2": {
-   "nodes": 2.0,
-   "status": "out of memory (killed)"
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "memory check abort"
-  },
-  "8": {
-   "nodes": 8.0,
    "status": "completed",
-   "wall_s": 953.183,
+   "wall_s": 856.506,
    "steps_s": {
-    "SCF": 952.681
+    "SCF": 856.191
    },
-   "peak_mem_per_rank_MiB": 3776,
+   "peak_mem_per_rank_MiB": 4826,
    "top_routines": [
     [
      "qs_energies",
-     952.681
+     856.191
     ],
     [
      "qs_energies_properties",
-     917.543
+     811.448
     ],
     [
      "post_scf_bandstructure",
-     917.54
+     811.445
     ],
     [
      "run_gw",
-     708.37
+     646.331
     ],
     [
      "gw_calc_ri_rs_small_cell_full_",
-     699.822
-    ],
-    [
-     "compute_Sigma_c_and_QP",
-     403.995
-    ],
-    [
-     "compute_Sigma_c_from_W_PQ",
-     254.678
-    ],
-    [
-     "cp_cfm_heevd",
-     196.144
-    ],
-    [
-     "cp_cfm_heevd_base",
-     196.14
-    ],
-    [
-     "eval_bandstructure_properties",
-     186.872
-    ],
-    [
-     "SOC_ev",
-     183.645
-    ],
-    [
-     "SOC_ev_all_mos",
-     183.641
-    ],
-    [
-     "mp_alltoall_z11v",
-     182.033
-    ],
-    [
-     "compute_QP_energies",
-     149.324
-    ],
-    [
-     "analyt_conti_and_print",
-     149.077
-    ]
-   ],
-   "gw_gap_eV": 3.1
-  }
- },
- "anatase_GW_aug-SZ2_FFT": {
-  "8": {
-   "nodes": 8.0,
-   "status": "completed",
-   "wall_s": 1147.636,
-   "steps_s": {
-    "SCF": 1147.123
-   },
-   "peak_mem_per_rank_MiB": 3750,
-   "top_routines": [
-    [
-     "qs_energies",
-     1147.123
-    ],
-    [
-     "qs_energies_properties",
-     1127.936
-    ],
-    [
-     "post_scf_bandstructure",
-     1127.934
-    ],
-    [
-     "run_gw",
-     919.089
-    ],
-    [
-     "gw_calc_ri_rs_small_cell_full_",
-     910.685
-    ],
-    [
-     "compute_Sigma_c_and_QP",
-     391.647
+     636.06
     ],
     [
      "prepare_ri_rs",
-     282.512
+     388.456
     ],
     [
-     "compute_Sigma_c_from_W_PQ",
-     254.684
+     "compute_Z_lP_q",
+     354.81
     ],
     [
-     "cell_to_k_grid_fft",
-     224.111
+     "compute_d_lP_R_numeric",
+     322.773
     ],
     [
-     "cell_to_k_transform",
-     224.096
+     "integrate_d_lP_R",
+     322.755
     ],
     [
-     "build_all_phi_k",
-     215.82
+     "integrate_potentials",
+     197.881
     ],
     [
-     "mp_alltoall_z11v",
-     206.405
+     "evaluate_rho_l_squared",
+     117.856
     ],
     [
-     "cp_cfm_heevd",
-     195.93
+     "copy_dbcsr_to_fm",
+     112.897
     ],
     [
-     "cp_cfm_heevd_base",
-     195.926
+     "dbcsr_to_fm_plan_create",
+     110.563
     ],
     [
-     "eval_bandstructure_properties",
-     186.334
+     "mp_alltoall_i",
+     110.089
+    ],
+    [
+     "soc",
+     109.113
     ]
    ],
-   "gw_gap_eV": 3.1
-  }
- },
- "anatase_GW_aug-TZ2": {
-  "0.5": {
-   "nodes": 0.5,
-   "status": "out of memory (killed)"
-  },
-  "1": {
-   "nodes": 1.0,
-   "status": "out of memory (killed)"
+   "gw_gap_eV": 1.166
   },
   "2": {
    "nodes": 2.0,
-   "status": "out of memory (killed)"
+   "status": "completed",
+   "wall_s": 737.439,
+   "steps_s": {
+    "SCF": 736.993
+   },
+   "peak_mem_per_rank_MiB": 5240,
+   "top_routines": [
+    [
+     "qs_energies",
+     736.993
+    ],
+    [
+     "qs_energies_properties",
+     682.667
+    ],
+    [
+     "post_scf_bandstructure",
+     682.664
+    ],
+    [
+     "run_gw",
+     407.337
+    ],
+    [
+     "gw_calc_ri_rs_small_cell_full_",
+     393.7
+    ],
+    [
+     "prepare_ri_rs",
+     218.034
+    ],
+    [
+     "copy_dbcsr_to_fm",
+     214.356
+    ],
+    [
+     "dbcsr_to_fm_plan_create",
+     209.536
+    ],
+    [
+     "mp_alltoall_i",
+     208.936
+    ],
+    [
+     "soc",
+     207.79
+    ],
+    [
+     "H_KS_spinor_kp",
+     207.512
+    ],
+    [
+     "rsmat_to_kp",
+     201.966
+    ],
+    [
+     "rskp_transform",
+     190.183
+    ],
+    [
+     "compute_Z_lP_q",
+     184.449
+    ],
+    [
+     "compute_d_lP_R_numeric",
+     171.846
+    ]
+   ],
+   "gw_gap_eV": 1.166
+  }
+ },
+ "WSe2_monolayer_GW_aug-TZ2": {
+  "0.5": {
+   "nodes": 0.5,
+   "status": "completed",
+   "wall_s": 1574.34,
+   "steps_s": {
+    "SCF": 1573.973
+   },
+   "peak_mem_per_rank_MiB": 1951,
+   "top_routines": [
+    [
+     "qs_energies",
+     1573.973
+    ],
+    [
+     "qs_energies_properties",
+     1547.016
+    ],
+    [
+     "post_scf_bandstructure",
+     1547.014
+    ],
+    [
+     "run_gw",
+     1519.19
+    ],
+    [
+     "gw_calc_ri_rs_small_cell_full_",
+     1514.641
+    ],
+    [
+     "prepare_ri_rs",
+     1277.81
+    ],
+    [
+     "optimize_ri_rs_grid",
+     1018.277
+    ],
+    [
+     "optimize_grid_coordinates",
+     740.49
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     684.668
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     616.933
+    ],
+    [
+     "mp_sum_i",
+     416.89
+    ],
+    [
+     "compute_Z_lP_q",
+     256.503
+    ],
+    [
+     "compute_d_lP_R_analytic",
+     246.007
+    ],
+    [
+     "initialize_ri_rs_grid",
+     226.692
+    ],
+    [
+     "select_cholesky_grid_iatom",
+     224.901
+    ]
+   ],
+   "gw_gap_eV": 2.272
   },
-  "4": {
-   "nodes": 4.0,
-   "status": "cancelled"
+  "1": {
+   "nodes": 1.0,
+   "status": "completed",
+   "wall_s": 840.119,
+   "steps_s": {
+    "SCF": 839.779
+   },
+   "peak_mem_per_rank_MiB": 2415,
+   "top_routines": [
+    [
+     "qs_energies",
+     839.779
+    ],
+    [
+     "qs_energies_properties",
+     821.124
+    ],
+    [
+     "post_scf_bandstructure",
+     821.121
+    ],
+    [
+     "run_gw",
+     796.477
+    ],
+    [
+     "gw_calc_ri_rs_small_cell_full_",
+     792.728
+    ],
+    [
+     "prepare_ri_rs",
+     677.986
+    ],
+    [
+     "optimize_ri_rs_grid",
+     542.115
+    ],
+    [
+     "optimize_grid_coordinates",
+     395.314
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     362.107
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     325.478
+    ],
+    [
+     "mp_sum_i",
+     190.628
+    ],
+    [
+     "compute_Z_lP_q",
+     133.728
+    ],
+    [
+     "compute_d_lP_R_analytic",
+     130.015
+    ],
+    [
+     "initialize_ri_rs_grid",
+     107.293
+    ],
+    [
+     "select_cholesky_grid_iatom",
+     107.221
+    ]
+   ],
+   "gw_gap_eV": 2.272
+  },
+  "2": {
+   "nodes": 2.0,
+   "status": "completed",
+   "wall_s": 579.737,
+   "steps_s": {
+    "SCF": 579.321
+   },
+   "peak_mem_per_rank_MiB": 3408,
+   "top_routines": [
+    [
+     "qs_energies",
+     579.321
+    ],
+    [
+     "qs_energies_properties",
+     558.12
+    ],
+    [
+     "post_scf_bandstructure",
+     558.118
+    ],
+    [
+     "run_gw",
+     526.215
+    ],
+    [
+     "gw_calc_ri_rs_small_cell_full_",
+     522.362
+    ],
+    [
+     "prepare_ri_rs",
+     434.297
+    ],
+    [
+     "optimize_ri_rs_grid",
+     362.522
+    ],
+    [
+     "optimize_grid_coordinates",
+     273.713
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     245.376
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     177.265
+    ],
+    [
+     "mp_sum_i",
+     143.316
+    ],
+    [
+     "compute_Z_lP_q",
+     69.786
+    ],
+    [
+     "compute_d_lP_R_analytic",
+     67.47
+    ],
+    [
+     "initialize_ri_rs_grid",
+     62.497
+    ],
+    [
+     "select_cholesky_grid_iatom",
+     62.335
+    ]
+   ],
+   "gw_gap_eV": 2.272
+  }
+ },
+ "nanographene_L5_GW_aug-SZ2": {
+  "0.5": {
+   "nodes": 0.5,
+   "status": "completed",
+   "wall_s": 958.083,
+   "steps_s": {
+    "SCF": 952.46
+   },
+   "peak_mem_per_rank_MiB": 2733,
+   "top_routines": [
+    [
+     "qs_energies",
+     952.46
+    ],
+    [
+     "qs_energies_properties",
+     867.851
+    ],
+    [
+     "post_scf_bandstructure",
+     867.808
+    ],
+    [
+     "run_gw",
+     867.055
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     862.409
+    ],
+    [
+     "ensure_ri_rs_representation",
+     801.776
+    ],
+    [
+     "optimize_ri_rs_grid",
+     766.978
+    ],
+    [
+     "optimize_grid_coordinates",
+     725.523
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     706.703
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     673.442
+    ],
+    [
+     "scf_env_do_scf",
+     80.566
+    ],
+    [
+     "scf_env_do_scf_inner_loop",
+     80.51
+    ],
+    [
+     "qs_ks_build_kohn_sham_matrix",
+     49.029
+    ],
+    [
+     "qs_ks_update_qs_env",
+     48.67
+    ],
+    [
+     "rebuild_ks_matrix",
+     48.635
+    ]
+   ],
+   "gw_gap_eV": 4.013
+  },
+  "1": {
+   "nodes": 1.0,
+   "status": "completed",
+   "wall_s": 511.719,
+   "steps_s": {
+    "SCF": 511.112
+   },
+   "peak_mem_per_rank_MiB": 1659,
+   "top_routines": [
+    [
+     "qs_energies",
+     511.112
+    ],
+    [
+     "qs_energies_properties",
+     467.254
+    ],
+    [
+     "post_scf_bandstructure",
+     467.247
+    ],
+    [
+     "run_gw",
+     466.836
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     464.491
+    ],
+    [
+     "ensure_ri_rs_representation",
+     431.558
+    ],
+    [
+     "optimize_ri_rs_grid",
+     413.881
+    ],
+    [
+     "optimize_grid_coordinates",
+     393.555
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     378.072
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     360.77
+    ],
+    [
+     "mp_sum_i",
+     90.551
+    ],
+    [
+     "scf_env_do_scf",
+     42.793
+    ],
+    [
+     "scf_env_do_scf_inner_loop",
+     42.791
+    ]
+   ],
+   "gw_gap_eV": 4.013
+  },
+  "2": {
+   "nodes": 2.0,
+   "status": "completed",
+   "wall_s": 331.532,
+   "steps_s": {
+    "SCF": 330.928
+   },
+   "peak_mem_per_rank_MiB": 1163,
+   "top_routines": [
+    [
+     "qs_energies",
+     330.928
+    ],
+    [
+     "qs_energies_properties",
+     299.542
+    ],
+    [
+     "post_scf_bandstructure",
+     299.534
+    ],
+    [
+     "run_gw",
+     297.472
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     294.451
+    ],
+    [
+     "ensure_ri_rs_representation",
+     264.391
+    ],
+    [
+     "optimize_ri_rs_grid",
+     254.98
+    ],
+    [
+     "optimize_grid_coordinates",
+     245.431
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     233.629
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     223.211
+    ],
+    [
+     "mp_sum_i",
+     180.731
+    ],
+    [
+     "scf_env_do_scf",
+     29.14
+    ],
+    [
+     "scf_env_do_scf_inner_loop",
+     29.138
+    ],
+    [
+     "contract_grid_panels",
+     22.757
+    ],
+    [
+     "dbcsr_multiply_generic",
+     21.912
+    ]
+   ],
+   "gw_gap_eV": 4.013
+  }
+ },
+ "nanographene_L16_GW_aug-SZ2_autoRI": {
+  "1": {
+   "nodes": 1.0,
+   "status": "completed",
+   "wall_s": 2036.047,
+   "steps_s": {
+    "SCF": 2034.962
+   },
+   "peak_mem_per_rank_MiB": 4574,
+   "top_routines": [
+    [
+     "qs_energies",
+     2034.962
+    ],
+    [
+     "qs_energies_properties",
+     1898.601
+    ],
+    [
+     "post_scf_bandstructure",
+     1898.594
+    ],
+    [
+     "run_gw",
+     1895.4
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     1880.953
+    ],
+    [
+     "ensure_ri_rs_representation",
+     1435.401
+    ],
+    [
+     "optimize_ri_rs_grid",
+     1344.21
+    ],
+    [
+     "optimize_grid_coordinates",
+     1275.656
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     1238.984
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     1182.2
+    ],
+    [
+     "contract_grid_panels",
+     275.012
+    ],
+    [
+     "dbcsr_multiply_generic",
+     260.137
+    ],
+    [
+     "multiply_cannon",
+     221.723
+    ],
+    [
+     "multiply_cannon_loop",
+     217.639
+    ],
+    [
+     "multiply_cannon_multrec",
+     200.795
+    ]
+   ],
+   "gw_gap_eV": 3.312
+  },
+  "2": {
+   "nodes": 2.0,
+   "status": "completed",
+   "wall_s": 1092.635,
+   "steps_s": {
+    "SCF": 1091.614
+   },
+   "peak_mem_per_rank_MiB": 3473,
+   "top_routines": [
+    [
+     "qs_energies",
+     1091.614
+    ],
+    [
+     "qs_energies_properties",
+     997.747
+    ],
+    [
+     "post_scf_bandstructure",
+     997.741
+    ],
+    [
+     "run_gw",
+     991.449
+    ],
+    [
+     "gw_calc_ri_rs_non_periodic",
+     979.414
+    ],
+    [
+     "ensure_ri_rs_representation",
+     725.977
+    ],
+    [
+     "optimize_ri_rs_grid",
+     679.875
+    ],
+    [
+     "optimize_grid_coordinates",
+     645.889
+    ],
+    [
+     "evaluate_ri_rs_fit",
+     620.598
+    ],
+    [
+     "evaluate_ri_rs_fit_ri_panels",
+     592.229
+    ],
+    [
+     "contract_grid_panels",
+     165.932
+    ],
+    [
+     "dbcsr_multiply_generic",
+     158.826
+    ],
+    [
+     "multiply_cannon",
+     133.731
+    ],
+    [
+     "multiply_cannon_loop",
+     130.611
+    ],
+    [
+     "multiply_cannon_multrec",
+     110.95
+    ]
+   ],
+   "gw_gap_eV": 3.312
   }
  },
  "nanographene_L16_GW_aug-SZ2": {
@@ -969,494 +1130,6 @@
     ]
    ],
    "gw_gap_eV": 3.307
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "completed",
-   "wall_s": 399.556,
-   "steps_s": {
-    "SCF": 398.693
-   },
-   "peak_mem_per_rank_MiB": 1366,
-   "top_routines": [
-    [
-     "qs_energies",
-     398.693
-    ],
-    [
-     "qs_energies_properties",
-     321.965
-    ],
-    [
-     "post_scf_bandstructure",
-     321.958
-    ],
-    [
-     "run_gw",
-     312.636
-    ],
-    [
-     "gw_calc_ri_rs_non_periodic",
-     310.886
-    ],
-    [
-     "ensure_ri_rs_representation",
-     207.097
-    ],
-    [
-     "optimize_ri_rs_grid",
-     194.321
-    ],
-    [
-     "optimize_grid_coordinates",
-     180.026
-    ],
-    [
-     "evaluate_ri_rs_fit",
-     165.074
-    ],
-    [
-     "evaluate_ri_rs_fit_ri_panels",
-     153.916
-    ],
-    [
-     "contract_grid_panels",
-     74.893
-    ],
-    [
-     "scf_env_do_scf",
-     72.093
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     72.091
-    ],
-    [
-     "dbcsr_multiply_generic",
-     71.947
-    ],
-    [
-     "mp_sum_i",
-     69.155
-    ]
-   ],
-   "gw_gap_eV": 3.307
-  }
- },
- "nanographene_L56_GW_aug-SZ2": {
-  "0.5": {
-   "nodes": 0.5,
-   "status": "out of memory (killed)"
-  },
-  "1": {
-   "nodes": 1.0,
-   "status": "out of memory (killed)"
-  },
-  "2": {
-   "nodes": 2.0,
-   "status": "completed",
-   "wall_s": 4609.256,
-   "steps_s": {
-    "SCF": 4606.654
-   },
-   "peak_mem_per_rank_MiB": 9837,
-   "top_routines": [
-    [
-     "qs_energies",
-     4606.654
-    ],
-    [
-     "qs_energies_properties",
-     3775.011
-    ],
-    [
-     "post_scf_bandstructure",
-     3775.009
-    ],
-    [
-     "run_gw",
-     3725.393
-    ],
-    [
-     "gw_calc_ri_rs_non_periodic",
-     3713.161
-    ],
-    [
-     "contract_grid_panels",
-     1315.645
-    ],
-    [
-     "compute_W",
-     1296.639
-    ],
-    [
-     "dbcsr_multiply_generic",
-     1255.532
-    ],
-    [
-     "compute_fm_W_freq",
-     1239.95
-    ],
-    [
-     "multiply_cannon",
-     1079.17
-    ],
-    [
-     "multiply_cannon_loop",
-     1044.799
-    ],
-    [
-     "compute_Sigma_c_and_QP_energie",
-     964.851
-    ],
-    [
-     "cp_fm_gemm",
-     944.662
-    ],
-    [
-     "parallel_gemm_fm_gemm",
-     942.677
-    ],
-    [
-     "multiply_cannon_multrec",
-     902.457
-    ]
-   ],
-   "gw_gap_eV": 3.194
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "completed",
-   "wall_s": 2496.719,
-   "steps_s": {
-    "SCF": 2495.011
-   },
-   "peak_mem_per_rank_MiB": 6319,
-   "top_routines": [
-    [
-     "qs_energies",
-     2495.011
-    ],
-    [
-     "qs_energies_properties",
-     1956.772
-    ],
-    [
-     "post_scf_bandstructure",
-     1956.77
-    ],
-    [
-     "run_gw",
-     1923.746
-    ],
-    [
-     "gw_calc_ri_rs_non_periodic",
-     1915.299
-    ],
-    [
-     "contract_grid_panels",
-     662.822
-    ],
-    [
-     "compute_W",
-     647.13
-    ],
-    [
-     "dbcsr_multiply_generic",
-     636.78
-    ],
-    [
-     "compute_fm_W_freq",
-     612.909
-    ],
-    [
-     "multiply_cannon",
-     554.43
-    ],
-    [
-     "multiply_cannon_loop",
-     538.968
-    ],
-    [
-     "scf_env_do_scf",
-     517.135
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     517.132
-    ],
-    [
-     "compute_Sigma_c_and_QP_energie",
-     497.199
-    ],
-    [
-     "ensure_ri_rs_representation",
-     485.462
-    ]
-   ],
-   "gw_gap_eV": 3.194
-  }
- },
- "water_64_PBE_TZV2P": {
-  "0.5": {
-   "nodes": 0.5,
-   "status": "completed",
-   "wall_s": 191.016,
-   "steps_s": {
-    "SCF": 190.729
-   },
-   "peak_mem_per_rank_MiB": 818,
-   "top_routines": [
-    [
-     "qs_energies",
-     190.729
-    ],
-    [
-     "scf_env_do_scf",
-     186.88
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     182.641
-    ],
-    [
-     "qs_ks_update_qs_env",
-     94.281
-    ],
-    [
-     "rebuild_ks_matrix",
-     94.2
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     94.199
-    ],
-    [
-     "qs_rho_update_rho_low",
-     90.023
-    ],
-    [
-     "calculate_rho_elec",
-     90.022
-    ],
-    [
-     "sum_up_and_integrate",
-     88.546
-    ],
-    [
-     "integrate_v_rspace",
-     88.506
-    ],
-    [
-     "grid_collocate_task_list",
-     88.321
-    ],
-    [
-     "grid_integrate_task_list",
-     87.261
-    ]
-   ]
-  },
-  "1": {
-   "nodes": 1.0,
-   "status": "completed",
-   "wall_s": 98.148,
-   "steps_s": {
-    "SCF": 97.894
-   },
-   "peak_mem_per_rank_MiB": 617,
-   "top_routines": [
-    [
-     "qs_energies",
-     97.894
-    ],
-    [
-     "scf_env_do_scf",
-     95.81
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     93.471
-    ],
-    [
-     "qs_ks_update_qs_env",
-     47.432
-    ],
-    [
-     "rebuild_ks_matrix",
-     47.382
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     47.381
-    ],
-    [
-     "qs_rho_update_rho_low",
-     45.849
-    ],
-    [
-     "calculate_rho_elec",
-     45.849
-    ],
-    [
-     "sum_up_and_integrate",
-     44.69
-    ],
-    [
-     "integrate_v_rspace",
-     44.675
-    ],
-    [
-     "grid_collocate_task_list",
-     44.604
-    ],
-    [
-     "grid_integrate_task_list",
-     43.823
-    ]
-   ]
-  },
-  "2": {
-   "nodes": 2.0,
-   "status": "completed",
-   "wall_s": 59.483,
-   "steps_s": {
-    "SCF": 59.147
-   },
-   "peak_mem_per_rank_MiB": 592,
-   "top_routines": [
-    [
-     "qs_energies",
-     59.147
-    ],
-    [
-     "scf_env_do_scf",
-     56.727
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     54.327
-    ],
-    [
-     "qs_ks_update_qs_env",
-     26.189
-    ],
-    [
-     "rebuild_ks_matrix",
-     26.151
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     26.149
-    ],
-    [
-     "qs_rho_update_rho_low",
-     24.42
-    ],
-    [
-     "calculate_rho_elec",
-     24.419
-    ],
-    [
-     "sum_up_and_integrate",
-     23.774
-    ],
-    [
-     "integrate_v_rspace",
-     23.763
-    ],
-    [
-     "grid_collocate_task_list",
-     22.961
-    ],
-    [
-     "grid_integrate_task_list",
-     22.13
-    ],
-    [
-     "dbcsr_multiply_generic",
-     5.994
-    ],
-    [
-     "qs_scf_new_mos",
-     5.356
-    ],
-    [
-     "qs_scf_loop_do_ot",
-     5.355
-    ]
-   ]
-  },
-  "4": {
-   "nodes": 4.0,
-   "status": "completed",
-   "wall_s": 36.696,
-   "steps_s": {
-    "SCF": 36.379
-   },
-   "peak_mem_per_rank_MiB": 503,
-   "top_routines": [
-    [
-     "qs_energies",
-     36.379
-    ],
-    [
-     "scf_env_do_scf",
-     35.066
-    ],
-    [
-     "scf_env_do_scf_inner_loop",
-     33.232
-    ],
-    [
-     "qs_ks_update_qs_env",
-     14.594
-    ],
-    [
-     "rebuild_ks_matrix",
-     14.564
-    ],
-    [
-     "qs_ks_build_kohn_sham_matrix",
-     14.56
-    ],
-    [
-     "qs_rho_update_rho_low",
-     13.487
-    ],
-    [
-     "calculate_rho_elec",
-     13.486
-    ],
-    [
-     "sum_up_and_integrate",
-     12.648
-    ],
-    [
-     "integrate_v_rspace",
-     12.639
-    ],
-    [
-     "grid_collocate_task_list",
-     11.699
-    ],
-    [
-     "grid_integrate_task_list",
-     11.034
-    ],
-    [
-     "dbcsr_multiply_generic",
-     6.352
-    ],
-    [
-     "qs_scf_new_mos",
-     6.175
-    ],
-    [
-     "qs_scf_loop_do_ot",
-     6.175
-    ]
-   ]
   }
  }
 }

@@ -7,14 +7,12 @@ CASE=$1; shift
 NODES=${@:-0.5 1 2 4}
 # walltimes per case and node count (estimate from earlier runs + margin)
 declare -A T=(
- [anatase_GW_aug-SZ2]="16:00:00 8:00:00 4:00:00 2:00:00"
- [anatase_DFT_aug-TZ2_FFT]="3:00:00 2:00:00 1:00:00 1:00:00"
- [anatase_GW_aug-SZ2_FFT]="16:00:00 8:00:00 4:00:00 2:00:00"
- [anatase_GW_aug-TZ2]="72:00:00 40:00:00 20:00:00 12:00:00"
- [anatase_DFT_aug-TZ2]="3:00:00 2:00:00 1:00:00 1:00:00"
+ [nanographene_L5_GW_aug-SZ2]="2:00:00 1:00:00 1:00:00 1:00:00"
+ [nanographene_L16_GW_aug-SZ2_autoRI]="2:00:00 1:30:00 1:00:00 1:00:00"
+ [Si_GW_aug-TZ2]="6:00:00 3:00:00 2:00:00 1:00:00"
+ [WSe2_monolayer_GW_aug-TZ2]="3:00:00 2:00:00 1:00:00 1:00:00"
  [water_64_PBE_TZV2P]="1:00:00 1:00:00 1:00:00 1:00:00"
  [nanographene_L16_GW_aug-SZ2]="4:00:00 2:00:00 1:00:00 1:00:00"
- [nanographene_L56_GW_aug-SZ2]="24:00:00 12:00:00 6:00:00 3:00:00"
 )
 read -r -a TT <<< "${T[$CASE]}"
 for n in $NODES; do

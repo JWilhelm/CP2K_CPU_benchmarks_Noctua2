@@ -19,4 +19,5 @@ echo "binary $RT data $CP2K_DATA_DIR"
 echo "start $(date +%s) nodes $SLURM_JOB_NUM_NODES ranks $SLURM_NTASKS host $(hostname)"
 srun --ntasks=$SLURM_NTASKS --cpus-per-task=8 --cpu-bind=cores --distribution=block:block \
   $RT/cp2k.psmp -i input.inp -o output.out > cp2k.stdout 2> cp2k.stderr
-echo "end $(date +%s) exit $?"
+rc=$?
+echo "end $(date +%s) exit $rc"

@@ -6,15 +6,13 @@ import sys
 timings = json.load(open(sys.argv[1]))
 CASES = [
     ("water_64_PBE_TZV2P", "64 H₂O (192 atoms), PBE, TZV2P-MOLOPT-GTH, Γ point"),
-    ("anatase_DFT_aug-TZ2_FFT", "TiO₂ anatase (12 atoms), PBE, aug-TZVP-MOLOPT tier 2, 12×12×12 k, RSKP_TRANSFORM FFT"),
-    ("anatase_DFT_aug-TZ2", "TiO₂ anatase (12 atoms), PBE, aug-TZVP-MOLOPT tier 2, 12×12×12 k, RSKP_TRANSFORM GEMM (default)"),
-    ("anatase_GW_aug-SZ2", "TiO₂ anatase (12 atoms), G₀W₀@PBE, aug-SZV-MOLOPT tier 2, 12×12×12 k, GEMM (default)"),
-    ("anatase_GW_aug-SZ2_FFT", "TiO₂ anatase (12 atoms), G₀W₀@PBE, aug-SZV-MOLOPT tier 2, 12×12×12 k, FFT"),
-    ("anatase_GW_aug-TZ2", "TiO₂ anatase (12 atoms), G₀W₀@PBE, aug-TZVP-MOLOPT tier 2, 12×12×12 k"),
-    ("nanographene_L16_GW_aug-SZ2", "nanographene (296 atoms), G₀W₀@PBE, aug-SZV-MOLOPT tier 2"),
-    ("nanographene_L56_GW_aug-SZ2", "nanographene (1016 atoms), G₀W₀@PBE, aug-SZV-MOLOPT tier 2"),
+    ("Si_GW_aug-TZ2", "Si (2 atoms), G₀W₀@PBE + SOC, aug-TZVP-MOLOPT-GTH tier 2, 12×12×12 k"),
+    ("WSe2_monolayer_GW_aug-TZ2", "WSe₂ monolayer (3 atoms), G₀W₀@PBE + SOC, aug-TZVP-MOLOPT-GTH tier 2, 16×16×1 k"),
+    ("nanographene_L5_GW_aug-SZ2", "nanographene (98 atoms), G₀W₀@PBE, aug-SZV-MOLOPT-GTH tier 2, AUTO_RI"),
+    ("nanographene_L16_GW_aug-SZ2_autoRI", "nanographene (296 atoms), G₀W₀@PBE, aug-SZV-MOLOPT-GTH tier 2, AUTO_RI"),
+    ("nanographene_L16_GW_aug-SZ2", "nanographene (296 atoms), G₀W₀@PBE, aug-SZV-MOLOPT-GTH tier 2, RI basis from file"),
 ]
-NODES = ["0.5", "1", "2", "4", "8"]
+NODES = ["0.5", "1", "2"]
 print("| Test | " + " | ".join(f"{n} node{'s' if n not in ('0.5', '1') else ''} ({int(float(n) * 128)} cores)"
                              for n in NODES) + " |")
 print("|:---|" + "---:|" * len(NODES))

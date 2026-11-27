@@ -1,5 +1,0 @@
-[2026-11-27T12:37:53.189] error: *** STEP 35472263.0 ON n2cn1070 CANCELLED AT 2026-11-27T12:37:53 DUE to SIGNAL Killed ***
-srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-srun: error: n2cn1070: task 0: Exited with exit code 1
-srun: Terminating StepId=35472263.0
-srun: error: n2cn1070: tasks 1-15: Killed

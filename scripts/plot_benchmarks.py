@@ -3,7 +3,6 @@
 
 fig_scaling.pdf/png: wall time against the number of cores (strong scaling) for all cases.
 fig_steps.pdf/png:   wall time split into the main steps of each calculation, per node count.
-fig_kp_transform.pdf/png: RSKP_TRANSFORM GEMM (default) against FFT for TiO2 anatase PBE and G0W0.
 Width 16 cm, Liberation Sans 10 pt (same metrics as Helvetica/Arial used in the report text).
 """
 import os
@@ -25,12 +24,13 @@ LEGEND = dict(frameon=True, fancybox=False, edgecolor="black", facecolor="white"
 
 CASES = [  # folder, label, colour, marker
     ("water_64_PBE_TZV2P", "64 H$_2$O, PBE, TZV2P-MOLOPT", "#1f77b4", "o"),
-    ("anatase_DFT_aug-TZ2_FFT", "TiO$_2$ anatase, PBE, aug-TZVP tier 2", "#ff7f0e", "s"),
-    ("nanographene_L16_GW_aug-SZ2", "nanographene 296 atoms, $G_0W_0$, aug-SZV tier 2", "#2ca02c", "^"),
-    ("nanographene_L56_GW_aug-SZ2", "nanographene 1016 atoms, $G_0W_0$, aug-SZV tier 2", "#d62728", "v"),
-    ("anatase_GW_aug-SZ2", "TiO$_2$ anatase, $G_0W_0$, aug-SZV tier 2", "#9467bd", "D"),
+    ("Si_GW_aug-TZ2", "Si, $G_0W_0$, aug-TZVP-MOLOPT tier 2, 12$\\times$12$\\times$12 $k$", "#ff7f0e", "s"),
+    ("WSe2_monolayer_GW_aug-TZ2", "WSe$_2$ monolayer, $G_0W_0$, aug-TZVP-MOLOPT tier 2, 16$\\times$16$\\times$1 $k$", "#9467bd", "D"),
+    ("nanographene_L5_GW_aug-SZ2", "nanographene 98 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#d62728", "v"),
+    ("nanographene_L16_GW_aug-SZ2_autoRI", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, AUTO_RI", "#2ca02c", "^"),
+    ("nanographene_L16_GW_aug-SZ2", "nanographene 296 atoms, $G_0W_0$, aug-SZV-MOLOPT tier 2, RI basis from file", "#8c564b", "<"),
 ]
-NODES = ["0.5", "1", "2", "4", "8"]
+NODES = ["0.5", "1", "2"]
 CORES_PER_NODE = 128
 
 # main steps: label -> timer names whose inclusive times are added (step "other" = total - sum)
@@ -38,21 +38,17 @@ STEPS = {
     "molecular GW": [("SCF", ["scf_env_do_scf"]), ("RI-RS grid optimization", ["optimize_ri_rs_grid"]),
                      ("$\\chi$", ["get_mat_chi_Gamma_tau"]), ("$W$", ["compute_W"]),
                      ("$\\mathit{\\Sigma}$ and QP energies", ["compute_Sigma_c_and_QP_energie"])],
-    "periodic GW": [("SCF", ["scf_env_do_scf"]), ("RI-RS setup and $Z$", ["prepare_ri_rs", "compute_Z_lP_q"]),
+    "periodic GW": [("SCF", ["scf_env_do_scf"]), ("RI-RS grid optimization", ["optimize_ri_rs_grid"]),
+                    ("RI-RS matrix $Z_{\\ell P}$", ["prepare_ri_rs", "-optimize_ri_rs_grid"]),
                     ("$\\chi$", ["compute_chi"]), ("$W$", ["compute_W0"]),
                     ("$\\mathit{\\Sigma}$ and QP energies", ["compute_Sigma_x", "compute_Sigma_c_and_QP"]),
-                    ("SOC and band output", ["eval_bandstructure_properties"])],
-    "k-point DFT": [("diagonalization", ["cp_cfm_geeig_local"]),
-                    ("density matrix $k\\to R$", ["kpoint_density_transform"]),
-                    ("KS and overlap $R\\to k$", ["kpoint_operator_evaluate_batch"]),
-                    ("KS matrix build", ["qs_ks_update_qs_env"])],
+                    ("SOC and band output", ["soc", "eval_bandstructure_properties"])],
     "Gamma DFT": [("KS matrix build", ["qs_ks_update_qs_env"]), ("OT minimization", ["scf_env_do_scf", "-qs_ks_update_qs_env"])],
 }
-KIND = {"water_64_PBE_TZV2P": "Gamma DFT", "anatase_DFT_aug-TZ2": "k-point DFT", "anatase_DFT_aug-TZ2_FFT": "k-point DFT",
-        "anatase_GW_aug-SZ2_FFT": "periodic GW",
-        "nanographene_L16_GW_aug-SZ2": "molecular GW", "nanographene_L56_GW_aug-SZ2": "molecular GW",
-        "anatase_GW_aug-SZ2": "periodic GW"}
-STEP_COLOURS = ["#4e79a7", "#f28e2b", "#59a14f", "#e15759", "#b07aa1", "#76b7b2", "#bab0ac"]
+KIND = {"water_64_PBE_TZV2P": "Gamma DFT", "Si_GW_aug-TZ2": "periodic GW", "WSe2_monolayer_GW_aug-TZ2": "periodic GW",
+        "nanographene_L5_GW_aug-SZ2": "molecular GW", "nanographene_L16_GW_aug-SZ2_autoRI": "molecular GW",
+        "nanographene_L16_GW_aug-SZ2": "molecular GW"}
+STEP_COLOURS = ["#4e79a7", "#f28e2b", "#edc948", "#59a14f", "#e15759", "#b07aa1", "#76b7b2", "#bab0ac"]
 
 
 def timing_report(path):
@@ -93,12 +89,12 @@ def tick_step(span):
     return 10 ** 6
 
 
-ALL_CASES = [c[0] for c in CASES] + ["anatase_DFT_aug-TZ2", "anatase_GW_aug-SZ2_FFT"]
+ALL_CASES = [c[0] for c in CASES]
 reports = {c: {n: timing_report(os.path.join(ROOT, "runs", c, n + "n", "output.out")) for n in NODES}
            for c in ALL_CASES}
 
 # ---------------------------------------------------------------- strong scaling
-fig, ax = plt.subplots(figsize=(16 * CM, 12 * CM))
+fig, ax = plt.subplots(figsize=(16 * CM, 14 * CM))
 for case, label, colour, marker in CASES:
     pts = [(float(n) * CORES_PER_NODE, r["CP2K"]) for n, r in reports[case].items() if r]
     if not pts:
@@ -108,29 +104,29 @@ for case, label, colour, marker in CASES:
     ax.plot([x[0], x[-1]], [y[0], y[0] * x[0] / x[-1]], color=colour, lw=0.8, ls=":")
 ax.set_xscale("log")
 ax.set_yscale("log")
-ax.xaxis.set_major_locator(FixedLocator([64, 128, 256, 512, 1024]))
+ax.xaxis.set_major_locator(FixedLocator([64, 128, 256]))
 ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: "%d" % v))
 ax.xaxis.set_minor_locator(NullLocator())
 yt = [20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
 ax.yaxis.set_major_locator(FixedLocator(yt))
 ax.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: "%d" % v))
 ax.yaxis.set_minor_formatter(NullFormatter())
-ax.set_xlim(55, 1200)
+ax.set_xlim(55, 300)
 ax.set_ylim(20, 10000)
 ax.set_xlabel("Number of cores (128 cores per Noctua 2 node)")
 ax.set_ylabel("Wall time (s)")
 ax.grid(True, which="major", color="0.85", lw=0.6)
-ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.17), ncol=2, fontsize=8, **LEGEND)
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.17), ncol=1, fontsize=8, **LEGEND)
 fig.tight_layout()
 for ext in ("pdf", "png"):
     fig.savefig(os.path.join(OUT, "fig_scaling." + ext), dpi=200)
 plt.close(fig)
 
 # ---------------------------------------------------------------- step breakdown
-fig, axes = plt.subplots(len(CASES), 1, figsize=(16 * CM, 23 * CM))
+fig, axes = plt.subplots(len(CASES), 1, figsize=(16 * CM, 26 * CM))
 for ax, (case, label, _, _), letter in zip(axes, CASES, "abcdefg"):
     steps = STEPS[KIND[case]]
-    nodes = [n for n in NODES if n != "8" or reports[case]["8"]]
+    nodes = NODES
     xpos = range(len(nodes))
     tmax = max([r["CP2K"] for r in reports[case].values() if r] or [1])
     for i, n in zip(xpos, nodes):
@@ -161,52 +157,5 @@ axes[-1].set_xlabel("Number of cores (128 cores per Noctua 2 node)")
 fig.tight_layout()
 for ext in ("pdf", "png"):
     fig.savefig(os.path.join(OUT, "fig_steps." + ext), dpi=200)
-plt.close(fig)
-# ---------------------------------------------------------------- GEMM against FFT
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16 * CM, 11 * CM), gridspec_kw={"width_ratios": [1.25, 1]})
-for case, backend, ls in (("anatase_DFT_aug-TZ2", "GEMM (default)", "-"), ("anatase_DFT_aug-TZ2_FFT", "FFT", "--")):
-    pts = [(float(n) * CORES_PER_NODE, r["CP2K"], r["kpoint_density_transform"])
-           for n, r in reports[case].items() if r]
-    x, total, dens = zip(*pts)
-    ax1.plot(x, total, ls=ls, marker="s", color="#ff7f0e", label="total, " + backend)
-    ax1.plot(x, dens, ls=ls, marker="o", color="#4e79a7", label="density matrix $k\\to R$, " + backend)
-ax1.set_xscale("log")
-ax1.set_yscale("log")
-ax1.xaxis.set_major_locator(FixedLocator([64, 128, 256, 512]))
-ax1.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: "%d" % v))
-ax1.xaxis.set_minor_locator(NullLocator())
-ax1.yaxis.set_major_locator(FixedLocator([10, 20, 50, 100, 200, 500, 1000, 2000]))
-ax1.yaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: "%d" % v))
-ax1.yaxis.set_minor_formatter(NullFormatter())
-ax1.set_ylim(10, 5000)
-ax1.set_xlim(55, 600)
-ax1.set_xlabel("Number of cores")
-ax1.set_ylabel("Wall time (s)")
-ax1.grid(True, which="major", color="0.85", lw=0.6)
-ax1.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), fontsize=8, **LEGEND)
-ax1.text(0.03, 0.97, "(a)", transform=ax1.transAxes, va="top", ha="left")
-ax1.set_title("PBE, aug-TZVP tier 2", fontsize=10, loc="left")
-steps = STEPS["periodic GW"]
-for i, case in enumerate(("anatase_GW_aug-SZ2", "anatase_GW_aug-SZ2_FFT")):
-    r = reports[case]["8"]
-    bottom = 0.0
-    for j, (slabel, timers) in enumerate(steps):
-        t = sum(r.get(k, 0.0) for k in timers)
-        ax2.bar(i, t, bottom=bottom, color=STEP_COLOURS[j], width=0.6, label=slabel if i == 0 else None)
-        bottom += t
-    ax2.bar(i, r["CP2K"] - bottom, bottom=bottom, color=STEP_COLOURS[-1], width=0.6, label="other" if i == 0 else None)
-ax2.set_xticks([0, 1])
-ax2.set_xticklabels(["GEMM\n(default)", "FFT"])
-ax2.set_xlim(-0.6, 1.6)
-ax2.set_ylim(0, 1400)
-ax2.yaxis.set_major_locator(MultipleLocator(200))
-ax2.yaxis.set_minor_locator(MultipleLocator(50))
-ax2.set_ylabel("Wall time (s)")
-ax2.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2, fontsize=8, **LEGEND)
-ax2.text(0.03, 0.97, "(b)", transform=ax2.transAxes, va="top", ha="left")
-ax2.set_title("$G_0W_0$, aug-SZV tier 2, 1024 cores", fontsize=10, loc="left")
-fig.tight_layout()
-for ext in ("pdf", "png"):
-    fig.savefig(os.path.join(OUT, "fig_kp_transform." + ext), dpi=200)
 plt.close(fig)
 print("figures written to", OUT)
