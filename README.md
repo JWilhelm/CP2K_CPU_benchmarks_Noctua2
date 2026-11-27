@@ -1,5 +1,7 @@
 # CP2K CPU benchmarks on Noctua 2: DFT, k-point DFT and low-scaling G₀W₀
 
+Summary report: [cp2k_benchmarks_noctua2.pdf](cp2k_benchmarks_noctua2.pdf).
+
 Wall times of six CP2K test cases on 0.5, 1, 2 and 4 nodes of Noctua 2 (PC2 Paderborn), as CPU reference
 for porting to GPUs. Each table entry is the CP2K wall time in seconds and links to the output.
 **–** = the run does not fit into the memory of the nodes (killed by the out-of-memory handler or stopped by a
@@ -72,7 +74,7 @@ for the real-space/k-point transforms; the former `LATTICE_FFT AUTO` (FFT from 2
 
 ![Steps](figures/fig_steps.png)
 
-The three-center integrals (μν|P) are not visible as a separate timer in the RI-RS G₀W₀ runs; in the molecular
+RI-RS G₀W₀ does not use the three-center integrals (μν|P) in χ, W and Σ; libint three-center integrals are computed only for small atom clusters in the RI-RS grid optimization and stay below 2 % of the time. In the molecular
 G₀W₀ the RI-RS grid optimization (57 % on 1 node for 296 atoms), W, Σ and the SCF dominate, in the periodic G₀W₀
 Σ (with the analytic continuation), χ and the SOC band output.
 
